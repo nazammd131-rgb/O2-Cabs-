@@ -1,0 +1,117 @@
+{
+  "entities": {
+    "Ride": {
+      "title": "Ride",
+      "description": "A booking request and tracking session for a cab ride",
+      "type": "object",
+      "properties": {
+        "userId": {
+          "type": "string"
+        },
+        "pickup": {
+          "type": "string"
+        },
+        "destination": {
+          "type": "string"
+        },
+        "vehicleName": {
+          "type": "string"
+        },
+        "amount": {
+          "type": "number"
+        },
+        "status": {
+          "type": "string",
+          "enum": [
+            "requested",
+            "assigned",
+            "ongoing",
+            "completed",
+            "cancelled"
+          ]
+        },
+        "driverId": {
+          "type": "string"
+        },
+        "driverName": {
+          "type": "string"
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "required": [
+        "userId",
+        "pickup",
+        "destination",
+        "status",
+        "createdAt"
+      ]
+    },
+    "SavedLocation": {
+      "title": "SavedLocation",
+      "description": "A location saved by the user for quick access",
+      "type": "object",
+      "properties": {
+        "userId": {
+          "type": "string"
+        },
+        "label": {
+          "type": "string"
+        },
+        "address": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "home",
+            "work",
+            "other"
+          ]
+        }
+      },
+      "required": [
+        "userId",
+        "label",
+        "address"
+      ]
+    },
+    "UserProfile": {
+      "title": "UserProfile",
+      "description": "User profile with wallets and contact details",
+      "type": "object",
+      "properties": {
+        "userId": {
+          "type": "string"
+        },
+        "phoneNumber": {
+          "type": "string"
+        },
+        "walletBalance": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "userId",
+        "phoneNumber",
+        "walletBalance"
+      ]
+    }
+  },
+  "firestore": {
+    "/rides/{rideId}": {
+      "schema": "Ride",
+      "description": "Ride tracking sessions"
+    },
+    "/savedLocations/{locationId}": {
+      "schema": "SavedLocation",
+      "description": "User's saved custom locations"
+    },
+    "/users/{userId}": {
+      "schema": "UserProfile",
+      "description": "User authentication profiles"
+    }
+  }
+}

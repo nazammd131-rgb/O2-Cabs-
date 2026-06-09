@@ -1,0 +1,6 @@
+{
+  "name": "O2 Cabs",
+  "description": "Premium ride-booking customer customer mobile app presentation with full 20 simulated flows and high-fidelity screen mockups.",
+  "requestFramePermissions": ["geolocation"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
